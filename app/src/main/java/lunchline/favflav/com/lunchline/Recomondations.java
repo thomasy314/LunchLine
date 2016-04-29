@@ -1,16 +1,24 @@
 package lunchline.favflav.com.lunchline;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class Recomondations extends Activity {
+
+    Intent intent;
+    TextView nameTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recomondations);
+        intent = getIntent();
+        nameTxt = (TextView) findViewById(R.id.name);
+        nameTxt.setText(intent.getExtras().getString("name"));
     }
 
     @Override

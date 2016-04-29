@@ -1,6 +1,7 @@
 package lunchline.favflav.com.lunchline;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -43,8 +44,8 @@ public class MainActivity extends Activity {
         enterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "it works!!!", Toast.LENGTH_SHORT).show();
-                //tabHost.sele
+                //Toast.makeText(getApplicationContext(), "it works!!!", Toast.LENGTH_SHORT).show();
+                openRec();
             }
         });
 
@@ -87,5 +88,12 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void openRec() {
+        Intent newIntent = new Intent(this, Recomondations.class);
+        EditText name = (EditText) findViewById(R.id.name);
+        newIntent.putExtra("name", name.toString());
+        startActivity(newIntent);
     }
 }
